@@ -12,8 +12,6 @@ import com.example.service.EmployeeService;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
-
-	//Database connection layer
 	@Autowired
 	private EmployeeRepo employeeRepo;
 	
@@ -25,7 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	@Override
-    public String removeEmployee(Integer id) { // Changed to Integer
+    public String removeEmployee(Integer id) {
         if (employeeRepo.existsById(id)) {
             employeeRepo.deleteById(id);
             return "Deleted employee with ID " + id;
@@ -34,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
 	@Override
-    public Optional<Employee> findEmpById(Integer id) { // Changed to Integer
+    public Optional<Employee> findEmpById(Integer id) { 
         return employeeRepo.findById(id);
     }
 
@@ -55,9 +53,9 @@ public class EmployeeServiceImpl implements EmployeeService{
 	        if (employee.getType() != null) existing.setType(employee.getType());
 	        if (employee.getSalary() != null) existing.setSalary(employee.getSalary());
 
-	        // 3. Save the changes back to the database
 	        return employeeRepo.save(existing); 
 	        
 	    }).orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
 	}
 }
+
