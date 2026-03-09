@@ -7,7 +7,6 @@ import com.example.model.Employee;
 
 public interface EmployeeService {
 	
-	//This layer performs actions based on the methods like to add, delete, get employees
 	public Employee addEmployee(Employee employee);
 	
 	public String removeEmployee(Integer id);
@@ -18,3 +17,4 @@ public interface EmployeeService {
 	
 	public Employee updateEmployee(Integer id, Employee employee);
 }
+
