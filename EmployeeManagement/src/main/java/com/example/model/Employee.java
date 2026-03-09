@@ -4,14 +4,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import com.fasterxml.jackson.annotation.JsonProperty; // Added import
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonProperty(access = JsonProperty.Access.READ_ONLY) // Prevents the 400 error
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private Integer id;
     
 	private String name;
@@ -101,3 +101,4 @@ public class Employee {
 	
 
 }
+
