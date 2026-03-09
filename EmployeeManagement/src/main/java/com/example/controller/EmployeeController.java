@@ -27,7 +27,7 @@ public class EmployeeController {
 
     @GetMapping("/home")
     public String homePage() {
-        return "Welcome to Management System";
+        return "Welcome to Employee Management";
     }
 
     @PostMapping("/addEmp")
@@ -61,5 +61,6 @@ public class EmployeeController {
         return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
     }
 }
+
 
 
