@@ -43,10 +43,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	@Override
 	public Employee updateEmployee(Integer id, Employee employee) {
-	    // 1. Find the existing employee in the database
 	    return employeeRepo.findById(id).map(existing -> {
-	        
-	        // 2. Update the fields only if they are provided in the request body
+	    
 	        if (employee.getName() != null) existing.setName(employee.getName());
 	        if (employee.getAge() != null) existing.setAge(employee.getAge());
 	        if (employee.getState() != null) existing.setState(employee.getState());
@@ -58,4 +56,5 @@ public class EmployeeServiceImpl implements EmployeeService{
 	    }).orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
 	}
 }
+
 
