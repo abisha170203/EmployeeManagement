@@ -32,13 +32,12 @@ public class EmployeeController {
 
     @PostMapping("/addEmp")
     public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee) {
-        // Ensure you have added @JsonProperty(access = Access.READ_ONLY) to ID in the Model
         Employee emp = empservice.addEmployee(employee);
         return new ResponseEntity<>(emp, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/removeEmp/{id}")
-    public ResponseEntity<String> removeEmployee(@PathVariable Integer id) { // Changed to Integer
+    public ResponseEntity<String> removeEmployee(@PathVariable Integer id) { 
         empservice.removeEmployee(id);
         return new ResponseEntity<>("Removed Successfully", HttpStatus.OK);
     }
@@ -62,4 +61,5 @@ public class EmployeeController {
         return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
     }
 }
+
 
